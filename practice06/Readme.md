@@ -17,9 +17,9 @@
 `Please fill up your source`
 ## 결과
  ### **Top Module 의 DUT/TestBench Code 및 Waveform 검증**
-![](practice06/tb06_waveform.png)
+![]([https://github.com/seo1224/LosicDesign](https://github.com/seo1224/LosicDesign)practice06/tb06_waveform.png)
 
 ### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE2ODc5MjczMDZdfQ==
+eyJoaXN0b3J5IjpbMTc5NjI5MTE1MywtMTY4NzkyNzMwNl19
 -->
