@@ -27,11 +27,11 @@ assign         				six_digit_seg = { seg_left, seg_right, seg_left, seg_right, s
 
 ### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
 
-```![](https://github.com/seo1224/LosicDesign/blob/master/practice06/tb06_FPGA(1).jpg)
+![](https://github.com/seo1224/LosicDesign/blob/master/practice06/tb06_FPGA(1).jpg)
 ![](https://github.com/seo1224/LosicDesign/blob/master/practice06/tb06_Q1.jpg)
-![](https://github.com/seo1224/LosicDesign/blob/master/practice06/tb06_Q2.jpg)`
+![](https://github.com/seo1224/LosicDesign/blob/master/practice06/tb06_Q2.jpg)
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTExNDQ0NDY5OSw4OTY2MDU1MTUsMTQyND
-I2NzY5OSwxNjU4NDM1ODUzLC0yNDY0MTQ0MSwtMTU2NjI2ODIy
-NCwxMjA1OTMwOTMzXX0=
+eyJoaXN0b3J5IjpbLTEzMzYyOTE5MTEsODk2NjA1NTE1LDE0Mj
+QyNjc2OTksMTY1ODQzNTg1MywtMjQ2NDE0NDEsLTE1NjYyNjgy
+MjQsMTIwNTkzMDkzM119
 -->
