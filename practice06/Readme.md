@@ -20,6 +20,8 @@
 ![](https://github.com/seo1224/LosicDesign/blob/master/practice06/tb06_waveform.png)
 
 ### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
+
+![]
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbMTIwNTkzMDkzM119
+eyJoaXN0b3J5IjpbLTE1NjYyNjgyMjQsMTIwNTkzMDkzM119
 -->
