@@ -21,7 +21,10 @@
 
 ### **FPGA 동작 사진 (3개- 일반, Q1, Q2)**
 
-![]
+![]()
+![]()
+![]()
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjYyNjgyMjQsMTIwNTkzMDkzM119
+eyJoaXN0b3J5IjpbLTI0NjQxNDQxLC0xNTY2MjY4MjI0LDEyMD
+U5MzA5MzNdfQ==
 -->
