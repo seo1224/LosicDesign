@@ -20,7 +20,7 @@
 
 ### [](https://github.com/woongchoi-sookmyung/LogicDesign/blob/master/practice07/Readme.md#quiz)**Quiz**
 
--   코드에서  `i_sw2`를 누르는 순간이 아닌  `때는 순간 숫자가 증가`하게 하려면? (모드 변경할 때 다른 숫자들 올라가는 건 무시)
+-   코드에서  `i_sw2`를 누르는 순간이 아닌  `때는 순간 숫자가 증가`하게 하려면? (모드 변경할 때 다른 숫자들 올라가는 건 무시) 
 
 reg		o_sec_clk		;
 reg		o_min_clk		;
@@ -60,5 +60,5 @@ end
 
 > Written with [StackEdit](https://stackedit.io/).
 <!--stackedit_data:
-eyJoaXN0b3J5IjpbLTE1NjgwNzI4OTFdfQ==
+eyJoaXN0b3J5IjpbLTM1MzM3MjY3NSwtMTU2ODA3Mjg5MV19
 -->
