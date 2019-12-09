@@ -49,28 +49,28 @@ end
 endmodule
 
 module	nco_worksong(	      
-				o_gen_clk,
+			o_gen_clk,
 			i_nco_num_worksong,
 			clk,
 			rst_n);
 
-output			o_gen_clk	;	// 1Hz CLK
+output			o_gen_clk		;	// 1Hz CLK
 
 input	[31:0]		i_nco_num_worksong	;
-input					clk		;	// 50Mhz CLK
-input					rst_n		;
+input			clk			;	// 50Mhz CLK
+input			rst_n			;
 
 reg	[31:0]		cnt_worksong	;
-reg					o_gen_clk	;
+reg			o_gen_clk	;
 
 always @(posedge clk or negedge rst_n) begin
 	if(rst_n == 1'b0) begin
-		cnt_worksong <= 32'd0;
+		cnt_worksong 	<= 32'd0;
 		o_gen_clk	<= 1'd0	;
 	end else begin
 		if(cnt_worksong>= i_nco_num_worksong/9-1) begin
-			cnt_worksong <= 32'd0;
-			o_gen_clk	     <= ~o_gen_clk;
+			cnt_worksong 	<= 32'd0;
+			o_gen_clk	<= ~o_gen_clk;
 		end else begin
 			cnt_worksong <= cnt_worksong + 1'b1;
 		end
@@ -1625,10 +1625,10 @@ nco	u_nco_bit(
 
 wire		clk_worksong_bit;
 nco_worksong	u_worksong_bit(	
-				.o_gen_clk	( clk_worksong_bit ),
+				.o_gen_clk		( clk_worksong_bit ),
 				.i_nco_num_worksong	( 25000000	),
-				.clk		( clk		),
-				.rst_n		( rst_n		));
+				.clk			( clk		),
+				.rst_n			( rst_n		));
 
 reg	[5:0]	cnt		;
 always @ (posedge clk_bit or negedge i_buzz_en) begin
@@ -1822,14 +1822,14 @@ nco	u_nco_buzz_alarm(
 
 wire		worksong	;
 nco_worksong	u_nco_worksong(
-				.o_gen_clk	(worksong),
+				.o_gen_clk		(worksong		),
 				.i_nco_num_worksong	(nco_num_worksong	),
-				.clk		(clk		),
-				.rst_n		(rst_n		));
+				.clk			(clk			),
+				.rst_n			(rst_n			));
 
-assign		o_buzz_alarm = buzz & i_buzz_en;
+assign		o_buzz_alarm = buzz & i_buzz_en			;
 
-assign		o_buzz_worksong = worksong & i_worksong_en;
+assign		o_buzz_worksong = worksong & i_worksong_en	;
 
 assign		o_buzz 	= o_buzz_alarm | o_buzz_worksong	;
 		
