@@ -9,7 +9,7 @@
 //	RELEASE HISTORY
 //	--------------------------------------------------
 //	VERSION			DATE
-//	1.0			2019-11-21
+//	1.0			2019-12-9
 //	--------------------------------------------------
 //	PURPOSE			: Digital Clock
 //	==================================================
@@ -48,7 +48,10 @@ always @(posedge clk or negedge rst_n) begin
 end
 
 endmodule
-
+//	--------------------------------------------------
+//	50Mhz -> 100hz
+//	Clock to make stopwatch2
+//	--------------------------------------------------
 module	nco2(	      
 		o_gen_clk2,
 		i_nco_num,
@@ -76,7 +79,7 @@ always @(posedge clk or negedge rst_n) begin
 			cnt <= cnt + 1'b1;
 		end
 	end
-end
+end 
 
 endmodule
 
@@ -386,6 +389,8 @@ always @(i_mode, i_position, i_alarm_dp) begin
 		i_six_dp = 6'b000100		;
 	end else if(i_mode == 3'b101)begin
 		i_six_dp = 6'b001000		;
+	end else begin
+		i_six_dp = 6'b000000		;
 	end
 end
 
@@ -419,14 +424,14 @@ module	hms_cnt(
 		clk,
 		rst_n);
 
-output	[5:0]	o_hms_cnt		;
+output	[6:0]	o_hms_cnt		;
 output		o_max_hit		;
 
-input	[5:0]	i_max_cnt		;
+input	[6:0]	i_max_cnt		;
 input		clk			;
 input		rst_n			;
 
-reg	[5:0]	o_hms_cnt		;
+reg	[6:0]	o_hms_cnt		;
 reg		o_max_hit		;
 always @(posedge clk or negedge rst_n) begin
 	if(rst_n == 1'b0) begin
@@ -612,10 +617,10 @@ output		o_wt_change_position	;// wt
 input		i_max_hit_sec		;
 input		i_max_hit_min		;
 input		i_max_hit_hour		;
-input		i_max_hit_stw_sec		;
-input		i_max_hit_stw_min		;
+input		i_max_hit_stw_sec	;
+input		i_max_hit_stw_min	;
 input		i_max_hit_stw_hour	;
-input		i_max_hit_stw_sec2		;
+input		i_max_hit_stw_sec2	;
 input		i_max_hit_stw_min2	;
 input		i_max_hit_stw_msec2	;
 input		i_min_hit_sec		;
@@ -755,7 +760,7 @@ always	@(posedge sw6 or negedge rst_n) begin
 end
 
 reg		o_alarm_en	;
-reg		o_alarm_sharp_en	;
+reg		o_alarm_sharp_en;
 reg		o_alarm_dp	;
 reg		o_timer_buzz	;
 always @(posedge sw3 or negedge rst_n) begin
@@ -1864,6 +1869,20 @@ always @(*) begin
 		end
 	endcase
 end
+
+reg		o_alarm_sharp		;
+always @ (posedge clk or negedge rst_n) begin
+	if (rst_n == 1'b0) begin
+		o_alarm_sharp <= 1'b0;
+	end else begin
+		if( i_max_hit_min == 1'b1  ) begin
+			o_alarm_sharp <= 1'b1 & o_alarm_sharp_en;
+		end else begin
+			o_alarm_sharp <= o_alarm_sharp & o_alarm_sharp_en;
+		end
+	end
+end
+
 endmodule
 
 //	--------------------------------------------------
@@ -1912,9 +1931,9 @@ module	hrminsec(
 		rst_n);
 
 
-output	[5:0]	o_sec		;
-output	[5:0]	o_min		;
-output	[5:0]	o_hour		;
+output	[6:0]	o_sec		;
+output	[6:0]	o_min		;
+output	[6:0]	o_hour		;
 
 
 output		o_max_hit_sec	;
@@ -2122,9 +2141,9 @@ hms_cnt_timer		u_hms_cnt_timer_hour(
 			.rst_n		(rst_n		));
 
 
-reg	[5:0]	o_sec			;
-reg	[5:0]	o_min			;
-reg	[5:0]	o_hour			;
+reg	[6:0]	o_sec			;
+reg	[6:0]	o_min			;
+reg	[6:0]	o_hour			;
 reg		o_timer_hour_clk	;
 reg		o_timer_min_clk		;
 reg		o_timer_sec_clk		;
@@ -2563,9 +2582,9 @@ controller		u_ctrl(
 			.o_wt_change_position	(wt_change_position),
 			.rst_n			(rst_n		));
 
-wire	[5:0]	hrminsec_1	;
-wire	[5:0]	hrminsec_2	;
-wire	[5:0]	hrminsec_3	;
+wire	[6:0]	hrminsec_1	;
+wire	[6:0]	hrminsec_2	;
+wire	[6:0]	hrminsec_3	;
 
 wire		alarm		;
 wire		stw		;
