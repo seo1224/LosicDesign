@@ -120,7 +120,7 @@ module	nco_alarm(
 		clk,
 		rst_n);
 
-output		o_gen_clk	;	// 1Hz CLK
+output		o_gen_clk	;	
 
 input	[31:0]	i_nco_num	;
 input		clk		;	
